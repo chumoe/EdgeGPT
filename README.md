@@ -27,7 +27,7 @@ https://user-images.githubusercontent.com/66362682/227550777-b01b9207-ad5b-4c35-
 To use this library, you can use Composer to install it. Run the following command:
 
 ```bash
-composer require ihsandevs/php-edge-gpt
+composer require chumoe/php-edge-gpt
 ```
 
 ## Usage
