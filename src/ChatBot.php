@@ -17,7 +17,10 @@ class Chatbot
         $this->cookies = $cookies;
         $this->proxy = $proxy;
         $this->chatHub = new ChatHub(
-            new Conversation($this->cookiePath, $this->cookies, $this->proxy)
+            new Conversation($this->cookiePath, $this->cookies, $this->proxy),
+            $cookiePath,
+            $cookies,
+            $proxy
         );
     }
 
@@ -87,7 +90,7 @@ class Chatbot
         $pool->add(function ()
         {
             $this->chatHub->close();
-            $this->chatHub = new ChatHub(new Conversation($this->cookiePath, $this->cookies));
+            $this->chatHub = new ChatHub(new Conversation($this->cookiePath, $this->cookies), $this->cookiePath, $this->cookies, $this->proxy);
         });
 
         $pool->wait();
