@@ -72,9 +72,15 @@ class Conversation
         ]);
 
         // Send GET request
-        $response = $this->session->get(getenv("BING_PROXY_URL") ?: "https://edgeservices.bing.com/edgesvc/turing/conversation/create", [
-            'verify' => false
-        ]);
+        try {
+            $response = $this->session->get(getenv("BING_PROXY_URL") ?: "https://edgeservices.bing.com/edgesvc/turing/conversation/create", [
+                'verify' => false
+            ]);
+        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
+            $response = $this->session->get(getenv("BING_PROXY_URL") ?: "https://edgeservices.bing.com/edgesvc/turing/conversation/create", [
+                'verify' => false
+            ]);
+        }
 
         if ($response->getStatusCode() != 200)
         {
