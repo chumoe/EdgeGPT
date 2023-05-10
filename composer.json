@@ -1,5 +1,5 @@
 {
-    "name": "ihsandevs/php-edge-gpt",
+    "name": "chumoe/php-edge-gpt",
     "description": "Bing AI Chatbot WebSocket API Wrapper for PHP",
     "keywords": [
         "edgegpt",
