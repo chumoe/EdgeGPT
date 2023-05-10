@@ -41,8 +41,11 @@ class ChatHub
     private $request;
     private $httpClient;
 
-    public function __construct(Conversation $conversation)
+    public function __construct(Conversation $conversation, $cookiePath = "", $cookies = null, $proxy = null)
     {
+        if(!isset($conversation->getStruct()["conversationSignature"])){
+            $conversation = new Conversation($cookiePath, $cookies, $proxy);
+        }
         $this->wss = null;
         $this->request = new ChatHubRequest(
             $conversation->getStruct()["conversationSignature"],
