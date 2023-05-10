@@ -35,5 +35,6 @@
         }
     ],
     "minimum-stability": "stable",
+    "version": "1.0.1",
     "homepage": "https://github.com/IhsanDevs/EdgeGPT"
 }
